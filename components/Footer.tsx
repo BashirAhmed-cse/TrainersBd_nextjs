@@ -1,130 +1,160 @@
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react'
-import Image from 'next/image'
-import React, { useState } from 'react'
-import { Input } from './ui/input'
-import { Checkbox } from './ui/checkbox'
-import { Button } from './ui/button'
+import { Linkedin, Twitter, Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Footer = () => {
-      const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
-  const [agreed, setAgreed] = useState(false)
+  const links = [
+    {
+      title: "Company",
+      items: [
+        { name: "About Us", href: "#" },
+        { name: "Our Experts", href: "#" },
+        { name: "Testimonials", href: "#" },
+        { name: "Careers", href: "#" }
+      ]
+    },
+    {
+      title: "Resources",
+      items: [
+        { name: "Blog", href: "#" },
+        { name: "Podcasts", href: "#" },
+        { name: "Webinars", href: "#" },
+        { name: "Case Studies", href: "#" }
+      ]
+    },
+    {
+      title: "Legal",
+      items: [
+        { name: "Privacy Policy", href: "#" },
+        { name: "Terms of Service", href: "#" },
+        { name: "Cookie Policy", href: "#" }
+      ]
+    }
+  ];
+
+  const socialMedia = [
+    { name: "LinkedIn", icon: <Linkedin className="w-5 h-5" />, href: "#" },
+    { name: "Twitter", icon: <Twitter className="w-5 h-5" />, href: "#" },
+    { name: "Facebook", icon: <Facebook className="w-5 h-5" />, href: "#" },
+    { name: "Instagram", icon: <Instagram className="w-5 h-5" />, href: "#" }
+  ];
+
   return (
-    <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-4 gap-12">
-            {/* Contact Info */}
-            <div className="lg:col-span-2">
-              <div className="mb-8">
-                <span className="text-3xl font-bold">
-                  speak<span className="text-yellow-500">în</span>
+    <footer className="bg-gray-900 text-gray-300 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-2xl font-bold text-white">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-amber-500">
+                  SPEAKIN
                 </span>
-                <p className="text-gray-300 mt-2">Making expert learning accessible to businesses and individuals.</p>
-              </div>
-
-              <div className="space-y-4">
-                <p className="text-lg font-semibold">
-                  Reach out to us for your learning or speaker session requirements.
-                </p>
-                <div className="space-y-2">
-                  <p>For immediate assistance, call us at</p>
-                  <p>+65 9372 6990 (Global)</p>
-                  <p>+91 96250 02763 (India)</p>
-                  <p>+60 10 234 4265 (Malaysia)</p>
-                  <p className="text-sm text-gray-400">(M-F: 9:00 am-6:00 pm)</p>
-                  <p>or e-mail us at lets.speak@speakin.co</p>
-                </div>
-              </div>
-
-              {/* Certifications */}
-              <div className="flex items-center space-x-4 mt-8">
-                <Image src="/placeholder.svg?height=40&width=60&text=AICPA" alt="AICPA" width={60} height={40} />
-                <Image src="/placeholder.svg?height=40&width=60&text=SOC" alt="SOC" width={60} height={40} />
-                <Image src="/placeholder.svg?height=40&width=60&text=ICF" alt="ICF" width={60} height={40} />
-              </div>
-            </div>
-
-            {/* Newsletter */}
-            <div>
-              <h3 className="text-xl font-semibold mb-6">Subscribe to our newsletter</h3>
-              <p className="text-gray-300 mb-4">
-                Subscribe to our newsletter to receive the latest updates from Speakin
+              </h2>
+              <p className="mt-4 text-gray-400">
+                Transforming leadership through expert coaching and learning experiences.
               </p>
-              <div className="space-y-4">
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-gray-800 border-gray-700 text-white"
-                />
-                <Input
-                  type="tel"
-                  placeholder="Phone No."
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="bg-gray-800 border-gray-700 text-white"
-                />
-                <div className="flex items-start space-x-2">
-                  <Checkbox id="terms" checked={agreed} onCheckedChange={setAgreed} />
-                  <label htmlFor="terms" className="text-xs text-gray-300 leading-tight">
-                    I authorize Speakin and its representative to contact me with updates and notifications via Email,
-                    SMS, WhatsApp, and Call. This will override the registry on DND / NDNC.
-                  </label>
-                </div>
-                <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black">Subscribe</Button>
-              </div>
-            </div>
+            </motion.div>
 
-            {/* Links */}
-            <div>
-              <h3 className="text-xl font-semibold mb-6">Useful links</h3>
-              <div className="space-y-2">
-                <a href="#" className="block text-gray-300 hover:text-white">
-                  &gt; FIND A COACH
-                </a>
-                <a href="#" className="block text-gray-300 hover:text-white">
-                  &gt; EXPERTS
-                </a>
-                <a href="#" className="block text-gray-300 hover:text-white">
-                  &gt; ABOUT US
-                </a>
-                <a href="#" className="block text-gray-300 hover:text-white">
-                  &gt; BLOGS
-                </a>
-                <a href="#" className="block text-gray-300 hover:text-white">
-                  &gt; CAREERS
-                </a>
-                <a href="#" className="block text-gray-300 hover:text-white">
-                  &gt; CONTACT US
-                </a>
-                <a href="#" className="block text-gray-300 hover:text-white">
-                  &gt; TERMS OF USE
-                </a>
-                <a href="#" className="block text-gray-300 hover:text-white">
-                  &gt; PRIVACY POLICY
+            {/* Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-4"
+            >
+              <div className="flex items-start space-x-3">
+                <Mail className="w-5 h-5 text-amber-400 mt-0.5" />
+                <a href="mailto:contact@speakin.com" className="text-gray-400 hover:text-white transition-colors">
+                  contact@speakin.com
                 </a>
               </div>
-
-              <div className="mt-8">
-                <h4 className="font-semibold mb-4">Follow Us</h4>
-                <div className="flex space-x-4">
-                  <Facebook className="w-5 h-5 text-gray-300 hover:text-white cursor-pointer" />
-                  <Linkedin className="w-5 h-5 text-gray-300 hover:text-white cursor-pointer" />
-                  <Twitter className="w-5 h-5 text-gray-300 hover:text-white cursor-pointer" />
-                  <Instagram className="w-5 h-5 text-gray-300 hover:text-white cursor-pointer" />
-                  <Youtube className="w-5 h-5 text-gray-300 hover:text-white cursor-pointer" />
-                </div>
+              <div className="flex items-start space-x-3">
+                <Phone className="w-5 h-5 text-amber-400 mt-0.5" />
+                <a href="tel:+11234567890" className="text-gray-400 hover:text-white transition-colors">
+                  +1 (123) 456-7890
+                </a>
               </div>
-            </div>
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 text-amber-400 mt-0.5" />
+                <address className="text-gray-400 hover:text-white transition-colors not-italic">
+                  123 Leadership Ave, San Francisco
+                </address>
+              </div>
+            </motion.div>
           </div>
 
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-            <p className="text-gray-400">2025 Copyright © SCPL Asia. All rights reserved.</p>
-          </div>
+          {/* Link Columns */}
+          {links.map((column, index) => (
+            <motion.div
+              key={column.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="space-y-4"
+            >
+              <h3 className="text-lg font-semibold text-white">{column.title}</h3>
+              <ul className="space-y-3">
+                {column.items.map((item) => (
+                  <li key={item.name}>
+                    <Link href={item.href} className="text-gray-400 hover:text-amber-400 transition-colors">
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </div>
-      </footer>
-  )
-}
 
-export default Footer
+        {/* Divider */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="border-t border-gray-800 my-12"
+        />
+
+        {/* Bottom Row */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-gray-500 text-sm"
+          >
+            © {new Date().getFullYear()} Speakin. All rights reserved.
+          </motion.p>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="flex space-x-4"
+          >
+            {socialMedia.map((social) => (
+              <motion.a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -3 }}
+                className="bg-gray-800 p-2.5 rounded-full text-gray-300 hover:text-white hover:bg-amber-500 transition-all"
+                aria-label={social.name}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
