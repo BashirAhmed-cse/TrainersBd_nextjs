@@ -3,8 +3,10 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
+import { useTheme } from "next-themes";
 
 const Experience = () => {
+  const { theme } = useTheme();
   const [activeTab, setActiveTab] = useState("boardMembers");
 
   // Sample data
@@ -25,44 +27,64 @@ const Experience = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className={`py-16 ${theme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${
+            theme === 'dark' ? 'text-white' : 'text-gray-900'
+          }`}>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-amber-600">
               EXPERIENCE TRANSFORMATION
             </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className={`text-lg max-w-2xl mx-auto ${
+            theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+          }`}>
             Get access to world's top experts via one-on-one coaching or group learning sessions.
           </p>
         </div>
 
         {/* Modern Tab Buttons */}
         <div className="flex justify-center mb-16">
-          <div className="inline-flex bg-gray-100 p-1 rounded-xl shadow-inner">
-            
-            
+          <div className={`inline-flex p-1 rounded-xl shadow-inner ${
+            theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'
+          }`}>
             <button
               onClick={() => setActiveTab('boardMembers')}
               className={`px-8 py-3 rounded-lg flex items-center space-x-3 transition-all ${
                 activeTab === 'boardMembers'
-                  ? 'bg-white shadow-lg text-amber-600'
-                  : 'text-gray-600 hover:bg-gray-50'
+                  ? theme === 'dark'
+                    ? 'bg-gray-700 shadow-lg text-amber-400'
+                    : 'bg-white shadow-lg text-amber-600'
+                  : theme === 'dark'
+                    ? 'text-gray-300 hover:bg-gray-700'
+                    : 'text-gray-600 hover:bg-gray-50'
               }`}
             >
-              <BookOpen className={`w-5 h-5 ${activeTab === 'boardMembers' ? 'text-amber-600' : 'text-gray-500'}`} />
+              <BookOpen className={`w-5 h-5 ${
+                activeTab === 'boardMembers' ? 'text-amber-600' : (
+                  theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
+                )
+              }`} />
               <span className="font-medium">Board Members</span>
             </button>
             <button
               onClick={() => setActiveTab('oneOnOne')}
               className={`px-8 py-3 rounded-lg flex items-center space-x-3 transition-all ${
                 activeTab === 'oneOnOne'
-                  ? 'bg-white shadow-lg text-amber-600'
-                  : 'text-gray-600 hover:bg-gray-50'
+                  ? theme === 'dark'
+                    ? 'bg-gray-700 shadow-lg text-amber-400'
+                    : 'bg-white shadow-lg text-amber-600'
+                  : theme === 'dark'
+                    ? 'text-gray-300 hover:bg-gray-700'
+                    : 'text-gray-600 hover:bg-gray-50'
               }`}
             >
-              <Users className={`w-5 h-5 ${activeTab === 'oneOnOne' ? 'text-amber-600' : 'text-gray-500'}`} />
+              <Users className={`w-5 h-5 ${
+                activeTab === 'oneOnOne' ? 'text-amber-600' : (
+                  theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
+                )
+              }`} />
               <span className="font-medium">All Members</span>
             </button>
           </div>
@@ -79,7 +101,11 @@ const Experience = () => {
               whileHover={{ y: -5 }}
               className="group relative"
             >
-              <div className="h-full bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all border border-gray-100 hover:border-amber-100">
+              <div className={`h-full rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all border ${
+                theme === 'dark'
+                  ? 'bg-gray-800 border-gray-700 hover:border-amber-800'
+                  : 'bg-white border-gray-100 hover:border-amber-100'
+              }`}>
                 {/* Image with gradient overlay */}
                 <div className="aspect-[3/4] relative">
                   <Image
@@ -89,20 +115,23 @@ const Experience = () => {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${
+                    theme === 'dark' ? 'from-black/60' : 'from-black/40'
+                  } via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 </div>
                 
                 {/* Card content */}
                 <div className="p-5">
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">{person.name}</h3>
+                  <h3 className={`text-lg font-bold mb-1 ${
+                    theme === 'dark' ? 'text-white' : 'text-gray-900'
+                  }`}>{person.name}</h3>
                   <p className="text-amber-600 font-medium">{person.role}</p>
-                  
-                  {/* Hidden hover content */}
-                 
                 </div>
                 
                 {/* Decorative corner element */}
-                <div className="absolute top-0 right-0 w-12 h-12 bg-amber-500 opacity-10 group-hover:opacity-20 transition-opacity duration-300 -z-10" />
+                <div className={`absolute top-0 right-0 w-12 h-12 ${
+                  theme === 'dark' ? 'bg-amber-400' : 'bg-amber-500'
+                } opacity-10 group-hover:opacity-20 transition-opacity duration-300 -z-10`} />
               </div>
             </motion.div>
           ))}

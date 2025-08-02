@@ -12,12 +12,14 @@ import QuickResponse from "@/components/QuickResponse";
 import LearnWithExpert from "@/components/LearnWithExpert";
 import Testimonials from "@/components/Testimonials";
 import ContactUs from "@/components/ContactUs";
+import MembershipForm from "@/components/MembershipForm";
+import WhyChooseUs from "@/components/WhyChooseUs";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Top Banner */}
-      <TopBanner />
+     
 
       {/* Header */}
       <Header />
@@ -25,7 +27,15 @@ export default function HomePage() {
       {/* Hero Section */}
       <Hero />
       {/* About Speakin Section */}
-      <About />
+      <section id="about-section">
+        <About />
+      </section>
+      {/* whay choose us */}
+<WhyChooseUs/>
+      {/* membership registration */}
+      <section id="membership-section">
+        <MembershipForm/>
+     </section>
       {/* Services Section */}
       <Service />
 
@@ -33,14 +43,19 @@ export default function HomePage() {
 
       <Client />
       {/* Experience Transformation */}
+      <section id="member-section">
       <Experience />
-
+</section>
 {/* learn with expert */}
-<LearnWithExpert/>
+<section id="learn-section">
+        <LearnWithExpert/>
+      </section>
 {/* Testimonials */}
 <Testimonials/>
 {/* Contact us */}
-<ContactUs/>
+ <section id="contact-section">
+        <ContactUs/>
+      </section>
       {/* Footer */}
       <Footer />
 
