@@ -1,8 +1,9 @@
+"use client"
 import { useState } from 'react';
 import { ArrowRight, ArrowLeft, Upload, CheckCircle } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
-const MembershipForm = () => {
+const page = () => {
   const { theme } = useTheme();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -71,7 +72,7 @@ const MembershipForm = () => {
           <h1 className={`text-4xl font-bold mb-4 ${
             theme === 'dark' ? 'text-white' : 'text-gray-900'
           }`}>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-amber-600">
+            <span className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-amber-600">
               Membership Application Form
             </span>
           </h1>
@@ -499,4 +500,4 @@ const MembershipForm = () => {
   );
 };
 
-export default MembershipForm;
+export default page;

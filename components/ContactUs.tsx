@@ -66,8 +66,8 @@ const ContactUs = () => {
                   <p className={`mb-2 ${
                     theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
                   }`}>We'll respond within 24 hours</p>
-                  <a href="mailto:contact@speakin.com" className="text-amber-600 hover:text-amber-500 font-medium">
-                    contact@speakin.com
+                  <a href="mailto:trainersorg@gmail.com" className="text-amber-600 hover:text-amber-500 font-medium">
+                    trainersorg@gmail.com
                   </a>
                 </div>
               </div>
@@ -90,8 +90,8 @@ const ContactUs = () => {
                   <p className={`mb-2 ${
                     theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
                   }`}>Monday to Friday, 9am-5pm</p>
-                  <a href="tel:+11234567890" className="text-amber-600 hover:text-amber-500 font-medium">
-                    +1 (123) 456-7890
+                  <a href="tel:+8801714057476" className="text-amber-600 hover:text-amber-500 font-medium">
+                    +88 01714-057476
                   </a>
                 </div>
               </div>
@@ -115,8 +115,7 @@ const ContactUs = () => {
                     theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
                   }`}>Our headquarters</p>
                   <address className="text-amber-600 hover:text-amber-500 font-medium not-italic">
-                    123 Leadership Ave, Suite 100<br />
-                    San Francisco, CA 94107
+                    H-41/c GF, Dhanmondi 4/A, Dhaka 1209 , 1209
                   </address>
                 </div>
               </div>

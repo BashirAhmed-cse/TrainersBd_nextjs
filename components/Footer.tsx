@@ -1,3 +1,4 @@
+"use client"
 import { Linkedin, Twitter, Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -73,13 +74,13 @@ const Footer = () => {
             >
               <h2 className="text-3xl font-bold text-white">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-pink-500">
-                  SPEAKIN
+                  Trainers
                 </span>
               </h2>
               <p className={`mt-4 leading-relaxed ${
                 theme === 'dark' ? 'text-gray-400' : 'text-gray-300'
               }`}>
-                Transforming leadership through expert coaching and tailored learning experiences.
+                Trainers aims to bring together experts, trainers, and learners under one umbrella to foster knowledge sharing, skill development, and career advancement across diverse sectors.
               </p>
             </motion.div>
 
@@ -99,10 +100,10 @@ const Footer = () => {
                     theme === 'dark' ? 'text-amber-400' : 'text-amber-300'
                   }`} />
                 </div>
-                <a href="mailto:contact@speakin.com" className={`hover:text-white transition-colors ${
+                <a href="mailto:trainersorg@gmail.com" className={`hover:text-white transition-colors ${
                   theme === 'dark' ? 'text-gray-400' : 'text-gray-300'
                 }`}>
-                  contact@speakin.com
+                  trainersorg@gmail.com
                 </a>
               </div>
               <div className="flex items-start space-x-3 group">
@@ -113,10 +114,10 @@ const Footer = () => {
                     theme === 'dark' ? 'text-amber-400' : 'text-amber-300'
                   }`} />
                 </div>
-                <a href="tel:+11234567890" className={`hover:text-white transition-colors ${
+                <a href="tel:+88 01714 057476" className={`hover:text-white transition-colors ${
                   theme === 'dark' ? 'text-gray-400' : 'text-gray-300'
                 }`}>
-                  +1 (123) 456-7890
+                  +8801714057476
                 </a>
               </div>
               <div className="flex items-start space-x-3 group">
@@ -130,7 +131,7 @@ const Footer = () => {
                 <address className={`hover:text-white transition-colors not-italic ${
                   theme === 'dark' ? 'text-gray-400' : 'text-gray-300'
                 }`}>
-                  123 Leadership Ave, San Francisco
+              H-41/c GF, Dhanmondi 4/A, Dhaka 1209 , 1209
                 </address>
               </div>
             </motion.div>
@@ -192,7 +193,7 @@ const Footer = () => {
               theme === 'dark' ? 'text-gray-500' : 'text-gray-400'
             }`}
           >
-            © {new Date().getFullYear()} Speakin. All rights reserved.
+            © {new Date().getFullYear()} Trainers. All rights reserved.
           </motion.p>
 
           {/* Social Links */}

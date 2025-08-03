@@ -6,6 +6,7 @@ import { Menu, X, User, ChevronDown, Play, Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import Link from 'next/link';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,6 +69,7 @@ const Header = () => {
               className="flex items-center cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
+              <Link href="/" passHref>
               <Image
   src={theme === "dark" ? "/logo_white.png" : "/logo.png"}
   alt="Logo"
@@ -76,6 +78,7 @@ const Header = () => {
   className={`transition-all duration-300 ${isScrolled ? 'h-8' : 'h-10'}`}
   priority
 />
+</Link>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -116,6 +119,7 @@ const Header = () => {
               </Button>
 
               {/* Login Button */}
+              <Link href="/login" passHref>
               <Button 
                 variant="ghost" 
                 className="text-gray-700 hover:text-white dark:text-gray-300 hover:bg-gradient-to-r from-amber-500 to-pink-500 dark:hover:bg-gray-800 font-medium px-4 rounded-lg flex items-center space-x-2 group"
@@ -124,15 +128,17 @@ const Header = () => {
                 <User className="h-4 w-4 text-amber-600 dark:text-amber-400 group-hover:text-white dark:group-hover:text-amber-300 transition-colors" />
                 <span>Login</span>
               </Button>
-              
+              </Link>
               {/* Join Free Button */}
+              <Link href="/membership-application" passHref>
               <Button 
                 className="relative overflow-hidden group bg-gradient-to-r from-amber-500 to-pink-500 hover:from-amber-600 hover:to-pink-600 text-white font-medium px-6 rounded-lg shadow-sm hover:shadow-md transition-all"
-                onClick={() => scrollToSection('membership-section')}
+                
               >
                 <span className="relative z-10">Join Free</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-amber-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </Button>
+              </Link>
             </motion.div>
 
             {/* Mobile menu button */}
@@ -194,6 +200,7 @@ const Header = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
               >
+                <Link href="/login" passHref>
                 <Button 
                   variant="outline" 
                   className="w-full justify-center space-x-2 py-3 border-gray-300 dark:border-gray-700 hover:bg-amber-50 dark:hover:bg-gray-800"
@@ -202,12 +209,15 @@ const Header = () => {
                   <User className="h-4 w-4 text-amber-600 dark:text-amber-400" />
                   <span>Login</span>
                 </Button>
+                </Link>
+                <Link href="/membership-application" passHref>
                 <Button 
                   className="w-full justify-center bg-gradient-to-r from-amber-500 to-pink-500 hover:from-amber-600 hover:to-pink-600 text-white py-3"
                   onClick={() => scrollToSection('membership-section')}
                 >
                   Join Free
                 </Button>
+                </Link>
               </motion.div>
             </div>
           </motion.div>

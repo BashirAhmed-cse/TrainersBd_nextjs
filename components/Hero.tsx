@@ -94,9 +94,9 @@ const Hero = () => {
               <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight ${
                 theme === "dark" ? "text-white" : "text-gray-900"
               }`}>
-                Transform Your{' '}
+                Welcome to{' '}
                 <span className="relative inline-block">
-                  <span className="relative z-10">Skills</span>
+                  <span className="relative z-10">TRAINERS</span>
                   <motion.span 
                     initial={{ width: 0 }}
                     animate={{ width: '100%' }}
@@ -107,9 +107,9 @@ const Hero = () => {
                   />
                 </span>
                 <br />
-                With Top{' '}
+                Building a Community{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-pink-500">
-                  Industry Experts
+                  of Excellence
                 </span>
               </h1>
             </motion.div>
@@ -122,8 +122,7 @@ const Hero = () => {
                 theme === "dark" ? "text-gray-300" : "text-gray-600"
               }`}
             >
-              Access personalized coaching, interactive workshops, and cutting-edge 
-              courses designed to accelerate your professional and personal growth.
+              Trainers aims to bring together experts, trainers, and learners under one umbrella to foster knowledge sharing, skill development, and career advancement across diverse sectors. We envision a future where Bangladeshi talent thrives through world-class training opportunities tailored to global standards.
             </motion.p>
 
             <motion.div

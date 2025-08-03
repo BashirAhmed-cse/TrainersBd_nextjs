@@ -18,11 +18,8 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Top Banner */}
-     
-
-      {/* Header */}
-      <Header />
+  
+    
 
       {/* Hero Section */}
       <Hero />
@@ -33,15 +30,11 @@ export default function HomePage() {
       {/* whay choose us */}
 <WhyChooseUs/>
       {/* membership registration */}
-      <section id="membership-section">
-        <MembershipForm/>
-     </section>
+      
       {/* Services Section */}
       <Service />
 
-      {/* Clients Section */}
-
-      <Client />
+      
       {/* Experience Transformation */}
       <section id="member-section">
       <Experience />
@@ -57,7 +50,9 @@ export default function HomePage() {
         <ContactUs/>
       </section>
       {/* Footer */}
-      <Footer />
+   {/* Clients Section */}
+
+      <Client />
 
       {/* Quick Response Widget */}
       <QuickResponse />
