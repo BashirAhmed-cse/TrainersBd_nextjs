@@ -7,18 +7,20 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   const navItems = [
-    { name: 'About', id: 'about-section' },
-    { name: 'Contact', id: 'contact-section' },
-    { name: 'Member', id: 'member-section' },
-    { name: 'Find a Trainer', id: 'learn-section' }
+    { name: 'About', id: 'about-section', href: '/#about-section' },
+    { name: 'Contact', id: 'contact-section', href: '/#contact-section' },
+    { name: 'Member', id: 'member-section', href: '/#member-section' },
+    { name: 'Learn with Expert', id: 'learn-section', href: '/#learn-section' }
   ];
 
   useEffect(() => {
@@ -31,10 +33,16 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (id) => {
+    if (pathname !== '/') {
+      window.location.href = `/#${id}`;
+      return;
+    }
+    
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setMobileMenuOpen(false);
+      window.history.pushState(null, null, `#${id}`);
     }
   };
 
@@ -47,15 +55,15 @@ const Header = () => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         className={`text-white text-center py-2 text-sm font-medium ${
-        theme === "dark" 
-          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" 
-          : "bg-gradient-to-r from-amber-500 to-pink-500"
-      }`}
+          theme === "dark" 
+            ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" 
+            : "bg-gradient-to-r from-amber-500 to-pink-500"
+        }`}
       >
         Join our upcoming masterclass on effective communication —{' '}
-        <a href="#" className="underline hover:text-amber-100 transition-colors ml-1">
+        <Link href="/#learn-section" className="underline hover:text-amber-100 transition-colors ml-1">
           Register now
-        </a>
+        </Link>
       </motion.div>
 
       <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm py-1' : 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm py-2'}`}>
@@ -67,18 +75,17 @@ const Header = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
               className="flex items-center cursor-pointer"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <Link href="/" passHref>
-              <Image
-  src={theme === "dark" ? "/trainer_logo.png" : "/trainer_logo.png"}
-  alt="Logo"
-  width={isScrolled ? 120 : 150}
-  height={isScrolled ? 40 : 50}
-  className={`transition-all duration-300 ${isScrolled ? 'h-8' : 'h-10'}`}
-  priority
-/>
-</Link>
+                <Image
+                  src={theme === "dark" ? "/trainer_logo.png" : "/trainer_logo.png"}
+                  alt="Logo"
+                  width={isScrolled ? 120 : 150}
+                  height={isScrolled ? 40 : 50}
+                  className={`transition-all duration-300 ${isScrolled ? 'h-8' : 'h-10'}`}
+                  priority
+                />
+              </Link>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -90,13 +97,14 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
                 >
-                  <Button 
-                    variant="ghost" 
-                    onClick={() => scrollToSection(item.id)}
-                    className="text-gray-700 dark:text-gray-300 hover:text-white dark:hover:text-white font-medium text-sm px-4 py-2 rounded-lg hover:bg-gradient-to-r from-amber-500 to-pink-500 dark:hover:bg-gray-800 transition-all"
-                  >
-                    {item.name}
-                  </Button>
+                  <Link href={item.href} passHref>
+                    <Button 
+                      variant="ghost" 
+                      className="text-gray-700 dark:text-gray-300 hover:text-white dark:hover:text-white font-medium text-sm px-4 py-2 rounded-lg hover:bg-gradient-to-r from-amber-500 to-pink-500 dark:hover:bg-gray-800 transition-all"
+                    >
+                      {item.name}
+                    </Button>
+                  </Link>
                 </motion.div>
               ))}
             </nav>
@@ -108,6 +116,15 @@ const Header = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
             >
+              {/* Find Trainer Button */}
+              <Link href="/trainers" passHref>
+                <Button 
+                  className="w-full justify-center bg-indigo-500 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+                >
+                  Find a Trainer
+                </Button>
+              </Link>
+              
               {/* Theme Toggle */}
               <Button
                 variant="outline"
@@ -120,24 +137,23 @@ const Header = () => {
 
               {/* Login Button */}
               <Link href="/login" passHref>
-              <Button 
-                variant="ghost" 
-                className="text-gray-700 hover:text-white dark:text-gray-300 hover:bg-gradient-to-r from-amber-500 to-pink-500 dark:hover:bg-gray-800 font-medium px-4 rounded-lg flex items-center space-x-2 group"
-                onClick={() => scrollToSection('login-section')}
-              >
-                <User className="h-4 w-4 text-amber-600 dark:text-amber-400 group-hover:text-white dark:group-hover:text-amber-300 transition-colors" />
-                <span>Login</span>
-              </Button>
+                <Button 
+                  variant="ghost" 
+                  className="text-gray-700 hover:text-white dark:text-gray-300 hover:bg-gradient-to-r from-amber-500 to-pink-500 dark:hover:bg-gray-800 font-medium px-4 rounded-lg flex items-center space-x-2 group"
+                >
+                  <User className="h-4 w-4 text-amber-600 dark:text-amber-400 group-hover:text-white dark:group-hover:text-amber-300 transition-colors" />
+                  <span>Login</span>
+                </Button>
               </Link>
-              {/* Join Free Button */}
+              
+              {/* Join Us Button */}
               <Link href="/membership-application" passHref>
-              <Button 
-                className="relative overflow-hidden group bg-gradient-to-r from-amber-500 to-pink-500 hover:from-amber-600 hover:to-pink-600 text-white font-medium px-6 rounded-lg shadow-sm hover:shadow-md transition-all"
-                
-              >
-                <span className="relative z-10">Join Free</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-amber-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              </Button>
+                <Button 
+                  className="relative overflow-hidden group bg-gradient-to-r from-amber-500 to-pink-500 hover:from-amber-600 hover:to-pink-600 text-white font-medium px-6 rounded-lg shadow-sm hover:shadow-md transition-all"
+                >
+                  <span className="relative z-10">Join Us</span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-amber-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </Button>
               </Link>
             </motion.div>
 
@@ -185,13 +201,15 @@ const Header = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 * index }}
                 >
-                  <Button 
-                    variant="ghost"
-                    className="w-full justify-start text-gray-700 dark:text-gray-300 hover:bg-amber-50/50 dark:hover:bg-gray-800 py-3 text-base font-medium"
-                    onClick={() => scrollToSection(item.id)}
-                  >
-                    {item.name}
-                  </Button>
+                  <Link href={item.href} passHref>
+                    <Button 
+                      variant="ghost"
+                      className="w-full justify-start text-gray-700 dark:text-gray-300 hover:bg-amber-50/50 dark:hover:bg-gray-800 py-3 text-base font-medium"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Button>
+                  </Link>
                 </motion.div>
               ))}
               <motion.div 
@@ -200,23 +218,28 @@ const Header = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
               >
+                <Link href="/trainers" passHref>
+                  <Button 
+                    className="w-full justify-center bg-indigo-500 hover:bg-indigo-700 text-white font-semibold py-3 mb-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+                  >
+                    Find a Trainer
+                  </Button>
+                </Link>
                 <Link href="/login" passHref>
-                <Button 
-                  variant="outline" 
-                  className="w-full justify-center space-x-2 py-3 border-gray-300 dark:border-gray-700 hover:bg-amber-50 dark:hover:bg-gray-800"
-                  onClick={() => scrollToSection('login-section')}
-                >
-                  <User className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-                  <span>Login</span>
-                </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-center space-x-2 py-3 border-gray-300 dark:border-gray-700 hover:bg-amber-50 dark:hover:bg-gray-800 mb-2"
+                  >
+                    <User className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                    <span>Login</span>
+                  </Button>
                 </Link>
                 <Link href="/membership-application" passHref>
-                <Button 
-                  className="w-full justify-center bg-gradient-to-r from-amber-500 to-pink-500 hover:from-amber-600 hover:to-pink-600 text-white py-3"
-                  onClick={() => scrollToSection('membership-section')}
-                >
-                  Join Free
-                </Button>
+                  <Button 
+                    className="w-full justify-center bg-gradient-to-r from-amber-500 to-pink-500 hover:from-amber-600 hover:to-pink-600 text-white py-3"
+                  >
+                    Join us
+                  </Button>
                 </Link>
               </motion.div>
             </div>
