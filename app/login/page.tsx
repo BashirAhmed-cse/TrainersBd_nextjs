@@ -247,7 +247,7 @@ const LoginPage = () => {
 
       {/* Right side - Illustration */}
       <div className="hidden lg:flex lg:w-1/2 items-center justify-center p-12 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
+        <div className="absolute inset-0 "></div>
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
