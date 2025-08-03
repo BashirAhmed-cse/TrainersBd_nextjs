@@ -17,8 +17,8 @@ const Client = () => {
     { name: "ISB", logo: "/clients/isb.png", darkLogo: "/clients/isb.png" },
     { name: "Gluf", logo: "/clients/gluf.png", darkLogo: "/clients/gluf.png" },
     { name: "HDFC ERGO", logo: "/clients/hdfc.png", darkLogo: "/clients/hdfc.png" },
-    { name: "Asian Paints", logo: "/clients/asian-paints.png", darkLogo: "/clients/asian-paints.png" },
-    { name: "Julius Bär", logo: "/clients/julius-baer.png", darkLogo: "/clients/julius-baer.png" }
+
+ 
   ]
 
   // Duplicate clients for infinite loop effect

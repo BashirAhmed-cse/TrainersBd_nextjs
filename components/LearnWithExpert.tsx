@@ -12,80 +12,80 @@ const LearnWithExpert = () => {
     Videos: [
       { 
         title: "AI and Ethics", 
-        author: "Ralph Adalaba", 
-        image: "/content/ai-ethics.jpg",
+        author: "Saydujjaman", 
+        image: "/Members/Saydujjaman.jpg",
         category: "TECHNOLOGY"
       },
       { 
-        title: "The 'Miracle Man' of India", 
-        author: "Armstrong Pame", 
-        image: "/content/miracle-man.jpg",
+        title: "TAIHR – The Academy to Innovate HR", 
+        author: "Laila Naznin", 
+        image: "/BoardMembers/laila-Naznin.jpg",
         category: "MOTIVATION"
       },
       { 
         title: "Minimum Viable Product", 
-        author: "Victor Cotter", 
-        image: "/content/mvp.jpg",
+        author: "K M Hasan Ripon", 
+        image: "/BoardMembers/KM-Hasan.jpg",
         category: "DIGITAL TRANSFORMATION"
       }
     ],
     Blogs: [
       { 
         title: "Digital Transformation", 
-        author: "Tech Insights", 
-        image: "/content/digital-transformation.jpg",
+        author: "Yousuf Efti", 
+        image: "/BoardMembers/Yousuf-Efti.jpg",
         category: "DIGITAL TRANSFORMATION"
       },
       { 
         title: "Human Edge", 
-        author: "Leadership Today", 
-        image: "/content/human-edge.jpg",
+        author: "Mohammad Morad Hossain", 
+        image: "/BoardMembers/MOhammad-Morad-Hossain.jpg",
         category: "LEADERSHIP"
       },
       { 
-        title: "Branding Strategies", 
+        title: "Zia Uddin Ahmad", 
         author: "Marketing Pro", 
-        image: "/content/branding.jpg",
+        image: "/BoardMembers/Zia-Uddin-Mahmud.jpg",
         category: "BRANDING"
       }
     ],
     Podcasts: [
       { 
         title: "Technology Trends", 
-        author: "ETINC2", 
-        image: "/content/tech-trends.jpg",
+        author: "Del H Khan", 
+        image: "/BoardMembers/Del-H-Khan.jpg",
         category: "TECHNOLOGY"
       },
       { 
         title: "Operational Theories", 
-        author: "LUCKERSP", 
-        image: "/content/operations.jpg",
+        author: "Laila Naznin", 
+         image: "/BoardMembers/laila-Naznin.jpg",
         category: "OPERATIONAL THEORIES"
       },
       { 
         title: "Motivation Matters", 
-        author: "RUSHERS", 
-        image: "/content/motivation.jpg",
+        author: "K M Hasan Ripon", 
+       image: "/BoardMembers/KM-Hasan.jpg",
         category: "MOTIVATION"
       }
     ],
     "Live Learning": [
       { 
         title: "Leadership Skills", 
-        author: "Government of India", 
-        image: "/content/leadership.jpg",
+        author: "Laila Naznin", 
+         image: "/BoardMembers/laila-Naznin.jpg",
         category: "LEADERSHIP"
       },
       { 
         title: "Innovation Talks", 
-        author: "President T.E.U.K.", 
-        image: "/content/innovation.jpg",
+        author: "Saydujjaman.", 
+       image: "/Members/Saydujjaman.jpg",
         category: "TECHNOLOGY"
       },
       { 
         title: "Career Growth", 
-        author: "Media Administrator", 
-        image: "/content/career.jpg",
+        author: "Del H Khan", 
+       image: "/BoardMembers/Del-H-Khan.jpg",
         category: "LEADERSHIP"
       }
     ]
@@ -221,7 +221,7 @@ const LearnWithExpert = () => {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                 className="object-contain group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
                   <div>

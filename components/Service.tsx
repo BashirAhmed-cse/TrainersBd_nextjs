@@ -7,7 +7,7 @@ const Service = () => {
   const { theme } = useTheme();
   const stats = [
     { number: "18,000+", label: "Experts", icon: "/icons/expert.png", color: "from-amber-400 to-amber-500" },
-    { number: "1,000+", label: "1-on-1 Coaches", icon: "/icons/coach.png", color: "from-blue-400 to-blue-500" },
+    { number: "1,000+", label: "Members", icon: "/icons/coach.png", color: "from-blue-400 to-blue-500" },
     { number: "750+", label: "Live Sessions", icon: "/icons/sessions.png", color: "from-purple-400 to-purple-500" },
     { number: "500+", label: "Videos", icon: "/icons/videos.png", color: "from-red-400 to-red-500" },
     { number: "250+", label: "Podcasts", icon: "/icons/podcasts.png", color: "from-green-400 to-green-500" },

@@ -17,36 +17,13 @@ const Testimonials = () => {
     },
     {
       id: 2,
-      name: "Michael Chen",
-      role: "Director, InnovateX",
+      name: "Laila Naznin",
+      role: "Director Collaboration and Outreach & Founding Member",
       content: "The expert insights we gained through these sessions were invaluable. Our company culture has improved dramatically.",
       rating: 5,
-      image: "/testimonials/michael-chen.jpg"
-    },
-    {
-      id: 3,
-      name: "Priya Patel",
-      role: "Founder, GreenFuture",
-      content: "The personalized coaching helped me overcome specific challenges in scaling my business. Highly recommend to any entrepreneur!",
-      rating: 4,
-      image: "/testimonials/priya-patel.jpg"
-    },
-    {
-      id: 4,
-      name: "David Wilson",
-      role: "VP Operations, GlobalCorp",
-      content: "The group learning sessions provided practical frameworks we could implement immediately. Excellent return on investment.",
-      rating: 5,
-      image: "/testimonials/david-wilson.jpg"
-    },
-    {
-      id: 5,
-      name: "Emma Rodriguez",
-      role: "Marketing Director, BrandVision",
-      content: "Changed my perspective on leadership. The 1:1 coaching was tailored perfectly to my needs and growth areas.",
-      rating: 5,
-      image: "/testimonials/emma-rodriguez.jpg"
+      image: "/BoardMembers/laila-Naznin.jpg"
     }
+    
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
