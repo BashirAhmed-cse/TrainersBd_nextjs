@@ -43,8 +43,7 @@ export default function HomePage() {
 <section id="learn-section">
         <LearnWithExpert/>
       </section>
-{/* Testimonials */}
-<Testimonials/>
+
 {/* Contact us */}
  <section id="contact-section">
         <ContactUs/>
@@ -53,6 +52,8 @@ export default function HomePage() {
    {/* Clients Section */}
 
       <Client />
+      {/* Testimonials */}
+<Testimonials/>
 
       {/* Quick Response Widget */}
       <QuickResponse />

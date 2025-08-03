@@ -18,7 +18,7 @@ const Header = () => {
     { name: 'About', id: 'about-section' },
     { name: 'Contact', id: 'contact-section' },
     { name: 'Member', id: 'member-section' },
-    { name: 'LEARN', id: 'learn-section' }
+    { name: 'Find a Trainer', id: 'learn-section' }
   ];
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const Header = () => {
             >
               <Link href="/" passHref>
               <Image
-  src={theme === "dark" ? "/logo_white.png" : "/logo.png"}
+  src={theme === "dark" ? "/trainer_logo.png" : "/trainer_logo.png"}
   alt="Logo"
   width={isScrolled ? 120 : 150}
   height={isScrolled ? 40 : 50}

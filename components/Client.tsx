@@ -74,7 +74,7 @@ const Client = () => {
             theme === 'dark' ? 'text-white' : 'text-gray-900'
           }`}>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-amber-600">
-            Our Partnership
+            Our Partners
             </span>
           </h2>
           <p className={`text-lg max-w-3xl mx-auto ${
