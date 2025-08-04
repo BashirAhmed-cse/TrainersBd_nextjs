@@ -3,6 +3,7 @@ import { Loader } from "lucide-react";
 import { useTheme } from "next-themes";
 import { motion } from 'framer-motion'
 
+
 export default function Loading() {
   const { theme } = useTheme();
 

@@ -5,6 +5,7 @@ import { useTheme } from 'next-themes';
 import { Search, Filter, MapPin, Star, ChevronDown, ChevronUp, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const page = () => {
   const { theme } = useTheme();
@@ -18,68 +19,68 @@ const page = () => {
   const trainers = [
     {
       id: 1,
-      name: 'Dr. Sarah Johnson',
+      name: 'Laila Naznin',
       expertise: 'Leadership Development',
       category: 'Corporate',
       location: 'Dhaka',
       rating: 4.8,
       sessions: 120,
-      image: '/trainers/sarah-johnson.jpg',
+      image: '/BoardMembers/laila-Naznin.jpg',
       bio: '10+ years experience in executive coaching and leadership training'
     },
     {
       id: 2,
-      name: 'Michael Chen',
+      name: 'Zia Uddin Ahmad',
       expertise: 'Digital Marketing',
       category: 'Technology',
       location: 'Chittagong',
       rating: 4.5,
       sessions: 85,
-      image: '/trainers/michael-chen.jpg',
+      image: '/BoardMembers/Zia-Uddin-Mahmud.jpg',
       bio: 'Certified Google Trainer with expertise in digital transformation'
     },
     {
       id: 3,
-      name: 'Fatima Rahman',
+      name: 'K M Hasan Ripon',
       expertise: 'Communication Skills',
       category: 'Soft Skills',
       location: 'Dhaka',
       rating: 4.9,
       sessions: 150,
-      image: '/trainers/fatima-rahman.jpg',
+      image: '/BoardMembers/KM-Hasan.jpg',
       bio: 'Award-winning communication specialist with global experience'
     },
     {
       id: 4,
-      name: 'David Wilson',
+      name: 'Innovation Talks',
       expertise: 'Project Management',
       category: 'Corporate',
       location: 'Sylhet',
       rating: 4.6,
       sessions: 95,
-      image: '/trainers/david-wilson.jpg',
+      image: '/Members/Saydujjaman.jpg',
       bio: 'PMP certified with 15 years of corporate training experience'
     },
     {
       id: 5,
-      name: 'Aisha Khan',
+      name: 'Del H Khan',
       expertise: 'Data Science',
       category: 'Technology',
       location: 'Dhaka',
       rating: 4.7,
       sessions: 110,
-      image: '/trainers/aisha-khan.jpg',
+      image: '/BoardMembers/Del-H-Khan.jpg',
       bio: 'Data scientist and machine learning expert'
     },
     {
       id: 6,
-      name: 'Robert Smith',
+      name: 'Mohammad Morad Hossain',
       expertise: 'Sales Training',
       category: 'Business',
       location: 'Khulna',
       rating: 4.4,
       sessions: 75,
-      image: '/trainers/robert-smith.jpg',
+      image: '/BoardMembers/MOhammad-Morad-Hossain.jpg',
       bio: 'Helped 100+ businesses improve their sales performance'
     }
   ];
@@ -304,7 +305,7 @@ const page = () => {
                   theme === 'dark' ? 'bg-gray-800' : 'bg-white'
                 }`}
               >
-                <div className="relative h-48">
+                <div className="relative h-82">
                   <Image
                     src={trainer.image}
                     alt={trainer.name}
@@ -347,6 +348,7 @@ const page = () => {
                     {trainer.bio}
                   </p>
                   <div className="flex justify-between">
+                    <Link href="/TrainerProfile" passHref>
                     <Button
                       variant="outline"
                       className={`${
@@ -355,6 +357,7 @@ const page = () => {
                     >
                       View Profile
                     </Button>
+                    </Link>
                     <Button className="bg-gradient-to-r from-blue-600 to-amber-500 hover:from-blue-700 hover:to-amber-600">
                       Contact
                     </Button>
