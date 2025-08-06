@@ -250,7 +250,7 @@ const LoginPage = () => {
                     Admin
                   </Button>
                 </Link>
-          <Link href="/member" passHref>
+          <Link href="/user" passHref>
                   <Button 
                     className="w-full justify-center bg-purple-500 hover:bg-purple-700 text-white font-semibold py-3 mb-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
                   >

@@ -201,11 +201,23 @@ const page = () => {
                       </div>
 
                       {/* Member Since */}
+                      <div className='flex justify-between'>
                       <p className={`text-xs ${
                         theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
                       }`}>
                         Member since {member.joined}
                       </p>
+                      <Link href="/TrainerProfile" passHref>
+                    <Button
+                      variant="outline"
+                      className={` text-xs ${
+                        theme === 'dark' ? 'border-gray-600 hover:bg-gray-700' : 'border-gray-300 hover:bg-gray-100'
+                      }`}
+                    >
+                      View Profile
+                    </Button>
+                    </Link>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
