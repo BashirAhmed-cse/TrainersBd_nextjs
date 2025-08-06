@@ -351,7 +351,7 @@ const page = () => {
                     <Link href="/TrainerProfile" passHref>
                     <Button
                       variant="outline"
-                      className={`${
+                      className={`text-xs ${
                         theme === 'dark' ? 'border-gray-600 hover:bg-gray-700' : 'border-gray-300 hover:bg-gray-100'
                       }`}
                     >
